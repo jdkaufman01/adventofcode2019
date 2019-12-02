@@ -9,7 +9,7 @@ $fuelreq
 
 }
 
-$TotalFuelReq = $Null 
+$TotalFuelReq = 0
 $ModuleMass = Get-Content .\day1.txt 
 
 #### Part 1 ####
@@ -23,6 +23,7 @@ ForEach ($module in $ModuleMass){
 
 $TotalFuelReq
 
+$TotalFuelReq = 0
 ##### Part 2 #####
 
 
@@ -30,21 +31,17 @@ ForEach ($module in $ModuleMass){
 
     $freq = Get-FuelReq $module 
 
-    [int]$FuelReq += $freq
+    [int]$FuelReq = $freq
 
     While($Freq -ne 0){
 
         $Freq = Get-FuelReq $Freq
 
-        $FuelReq += $freq
+        $FuelReq = $FuelReq + $freq
 
     }
 
     $TotalFuelReq += $Fuelreq
-
-    $FuelReq = $Null
-
-    $freq = $Null 
 
 }
 
